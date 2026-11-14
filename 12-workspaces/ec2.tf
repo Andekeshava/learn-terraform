@@ -3,6 +3,7 @@ resource "aws_instance" "workspaces_demo" {
   ami = "ami-0055977a6e828a4f4"
   vpc_security_group_ids = [aws_security_group.workspaces_demo.id]
 
+
   provisioner "local-exec" {
     command = "echo  ${self.private_ip} > inventory.ini"
   }
@@ -55,7 +56,7 @@ resource "aws_instance" "workspaces_demo" {
   }
 }
 
-resource "aws_security_group" "workspaces_demo" {
+resource "aws_security_group" "workspaces_demo-sg" {
   name        = "provisioners"
   description = "Allow TLS inbound traffic and all outbound traffic"
 
@@ -74,6 +75,6 @@ resource "aws_security_group" "workspaces_demo" {
   }
 
   tags = {
-    Name = "roboshop-workspaces-demo"
+    Name = "roboshop-workspaces-demo-sg"
   }
 }
