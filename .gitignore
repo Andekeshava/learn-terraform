@@ -1,0 +1,28 @@
+# Core Terraform directories and local caches
+.terraform/
+
+# Local state files and backups (State contains sensitive architecture data)
+*.tfstate
+*.tfstate.*
+
+# Crash logs (In case Terraform crashes, these can contain secrets)
+crash.log
+crash.*.log
+
+# Exclude all variable files as they typically contain sensitive credentials/keys
+*.tfvars
+*.tfvars.json
+
+# Exclude local override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# Optional: Exclude Terraform generated plan files (uncomment if you save plans locally)
+# *tfplan*
+12-workspaces/
